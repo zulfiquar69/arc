@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <title>Journal Articles — ABC Law Firm</title>
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+	  <link rel="stylesheet" href="style.css">
+	</head>
+<body>
+	<div class="site-wrapper">
+
+								<!----------------------------- TOP BAR ------------------->
+	  <div class="top-bar">
+		<span><i class="fas fa-gavel"></i> 24/7 Legal Counsel</span>
+		<a href="tel:+8801755123456"><i class="fas fa-phone-alt"></i> +880 1755-123456</a>
+		<a href="mailto:contact@abclaw.com"><i class="far fa-envelope"></i> contact@abclaw.com</a>
+		<a href="https://wa.me/8801755123456?text=Journal%20Inquiry" target="_blank" class="whatsapp-link"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+	  </div>
+
+					<!---------------------------------- MAIN NAV ------------------------------------>
+	  <nav class="main-nav">
+		<div class="logo-area">
+		  <h1>ABC Law Firm</h1>
+		  <p>Advocacy | Clarity | Results</p>
+		</div>
+		<button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+		  <i class="fas fa-bars"></i>
+		</button>
+		<div class="nav-links" id="navLinks">
+		  <a href="index.html">Home</a>
+		  <a href="articles.html">Articles</a>
+		  <a href="journals.html">Journals</a>
+		  <a href="books.html">Books</a>
+		  <a href="news.html">News</a>
+		  <a href="about.html">About</a>
+		  <a href="services.html">Services</a>
+		  <a href="submit.html">Submit</a>
+		</div>
+	  </nav>
+
+					<!---------------------------- HERO -------------------------------->
+	  <div class="hero-search">
+		<h2 id="heroTitle">Journal Articles</h2>
+		<div class="tagline" id="heroTagline">Articles published in this journal</div>
+	  </div>
+
+					<!--------------------------------- TWO COLUMNS ----------------------------------->
+		<div class="two-columns">
+
+				<!--------------------------------------- SIDEBAR --------------------------------------->
+		<aside class="sidebar">
+		  <div class="sidebar-section" id="journalMenuSection">
+			<h3><i class="fas fa-balance-scale"></i> <span id="menuTitle">Journal Menu</span></h3>
+			<ul id="journalMenuList">
+			  <li><a href="#" data-menu="aims">Loading...</a></li>
+			</ul>
+		  </div>
+		  <div class="sidebar-section">
+			<h3><i class="fas fa-list-ul"></i> Journals (A–Z)</h3>
+		  </div>
+		</aside>
+
+					<!----------------------------- MAIN CONTENT ------------------------>
+    <div class="main-content">
+
+      <!-- Journal Header Card -->
+      <div class="journal-header-card">
+        <div class="journal-header-icon" id="journalHeaderIcon">
+          <i class="fas fa-journal-whills"></i>
+        </div>
+        <div class="journal-header-info">
+          <h3 id="journalHeaderTitle">Loading journal...</h3>
+          <p id="journalHeaderCat"></p>
+        </div>
+      </div>
+
+      <!-- Section Header -->
+      <div class="section-header">
+        <h2><i class="fas fa-scroll"></i> Articles in This Journal</h2>
+        <div class="results-count" id="resultCount">0 articles</div>
+      </div>
+
+      <!-- Article List -->
+      <div id="articleListContainer" class="article-list-grid"></div>
+
+      <!-- No Results -->
+      <div id="noResultsMsg" class="no-results" style="display:none;">
+        <i class="fas fa-search-minus"></i> No articles found for this journal.
+      </div>
+
+    </div>
+  </div>
+
+							<!------------------------------ FOOTER ----------------------------->
+	  <footer class="footer">
+		<div class="footer-inner">
+		  <div class="footer-col">
+			<h4>ABC Law Firm</h4>
+			<p>Rajshahi University.</p>
+			<p><i class="fas fa-phone"></i> +880 1755-123456</p>
+		  </div>
+		  <div class="footer-col">
+			<h4>Resources</h4>
+			<p><a href="#">Journal Submissions</a></p>
+			<p><a href="#">Peer Review Guidelines</a></p>
+		  </div>
+		  <div class="footer-col">
+			<h4>Publishing</h4>
+			<p><a href="#">Open Access Policy</a></p>
+			<p><a href="#">Call for Papers</a></p>
+		  </div>
+		</div>
+		<div class="copyright">© 2026 ABC Law Firm</div>
+	  </footer>
+
+</div>
+
+		<script src="journals-data.js"></script>
+		<script src="script.js"></script>
+	</body>
+</html>
