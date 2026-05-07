@@ -384,49 +384,68 @@ document.addEventListener('DOMContentLoaded', function () {
 }; 
 
     // Render journal sidebar menu
-    function renderJournalMenu(journal) {
-      const menuContainer = document.getElementById('journalMenuList');
-      if (!menuContainer) return;
-      const menuDetails = journal.menuDetails;
-      if (!menuDetails) {
-        menuContainer.innerHTML = '<li>No menu available</li>';
-        return;
-      }
-      let html = '';
-      for (let key in menuDetails) {
-        html += `<li><a href="#" data-menu-key="${escapeHtml(key)}">${escapeHtml(key)}</a></li>`;
-      }
-      menuContainer.innerHTML = html;
+function renderJournalMenu(journal) {
+  const menuContainer = document.getElementById('journalMenuList');
+  if (!menuContainer) return;
+  const menuDetails = journal.menuDetails;
+  if (!menuDetails) {
+    menuContainer.innerHTML = '<li>No menu available</li>';
+    return;
+  }
 
-      // attach click events
-      document.querySelectorAll('#journalMenuList a').forEach(link => {
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-          const key = link.getAttribute('data-menu-key');
-          if (key === 'Articles') {
-            showArticleList();
-          } else {
-            showMenuContent(journal.menuDetails[key], key);
-          }
-          // active style
-          document.querySelectorAll('#journalMenuList li').forEach(li => li.classList.remove('active'));
-          link.parentElement.classList.add('active');
-        });
-      });
+  // প্রতিটি মেনু আইটেমের জন্য আইকন ম্যাপ (পছন্দমতো পরিবর্তন করতে পারেন)
+  const menuIcons = {
+    "Aims & Scope": "fa-bullseye",
+    "Articles": "fa-list-ul",
+    "Archive": "fa-archive",
+    "Editorial Board": "fa-users",
+    "Editorial Policies": "fa-file-contract",
+    "Publication Fees": "fa-dollar-sign",
+    "Ethics": "fa-balance-scale"
+  };
+  const defaultIcon = "fa-scroll";
 
-		// Default: show "Archive" if exists, otherwise first menu
-		let defaultKey = 'Archive';
-		if (!menuDetails[defaultKey]) {
-		  defaultKey = Object.keys(menuDetails)[0];
-		}
-		if (defaultKey === 'Articles') {
-		  showArticleList();
-		} else {
-		  showMenuContent(menuDetails[defaultKey], defaultKey);
-		  const defaultLink = document.querySelector(`#journalMenuList a[data-menu-key="${defaultKey}"]`);
-		  if (defaultLink) defaultLink.parentElement.classList.add('active');
-		}
-    };
+  let html = '';
+  for (let key in menuDetails) {
+    const iconClass = menuIcons[key] || defaultIcon;
+    html += `<li><a href="#" data-menu-key="${escapeHtml(key)}"><i class="fas ${iconClass}"></i> ${escapeHtml(key)}</a></li>`;
+  }
+  menuContainer.innerHTML = html;
+
+  // attach click events
+  document.querySelectorAll('#journalMenuList a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const key = link.getAttribute('data-menu-key');
+      if (key === 'Articles') {
+        showArticleList();
+      } 
+      else if (key === 'Archive') {
+        // আর্কাইভ পেজে রিডাইরেক্ট করুন (আপনার সেটিং অনুযায়ী)
+        window.location.href = 'archive.html';
+      }
+      else {
+        showMenuContent(journal.menuDetails[key], key);
+      }
+      // active style
+      document.querySelectorAll('#journalMenuList li').forEach(li => li.classList.remove('active'));
+      link.parentElement.classList.add('active');
+    });
+  });
+
+  // Default: show "Archive" if exists, otherwise first menu (যেমন আগে সেট করে দিয়েছিলেন)
+  let defaultKey = 'Archive';
+  if (!menuDetails[defaultKey]) {
+    defaultKey = Object.keys(menuDetails)[0];
+  }
+  if (defaultKey === 'Articles') {
+    showArticleList();
+  } else {
+    showMenuContent(menuDetails[defaultKey], defaultKey);
+    const defaultLink = document.querySelector(`#journalMenuList a[data-menu-key="${defaultKey}"]`);
+    if (defaultLink) defaultLink.parentElement.classList.add('active');
+  }
+}
 
     // Render articles list (the original listing)
     function renderArticleList(articles, journalTitle) {
