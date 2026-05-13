@@ -931,3 +931,60 @@ body {
     font-size: 1rem;
   }
 }
+/* ===============Dropdown menu styles for Donate================= */
+/* ড্রপডাউন কন্টেইনার ও স্টাইল */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropbtn i {
+  font-size: 0.7rem;
+  margin-left: 4px;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  z-index: 1000;
+  border-radius: 8px;
+  top: 100%;
+  left: auto;
+  right: 0;
+}
+.dropdown-content a {
+  color: #1f3a4b;
+  padding: 10px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 0.85rem;
+  border-bottom: 1px solid #eef2f8;
+}
+.dropdown-content a:hover {
+  background-color: #f9f5f2;
+  color: #c4452c;
+}
+/* ডেস্কটপে হোভার করলে খোলা */
+@media (min-width: 769px) {
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+}
+/* মোবাইলে হোভার ডিজএবল এবং ক্লিক নিয়ন্ত্রণ */
+@media (max-width: 768px) {
+  .dropdown:hover .dropdown-content {
+    display: none; /* হোভার কাজ করবে না */
+  }
+  .dropdown-content {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+    border-radius: 0;
+    left: 0;
+    right: auto;
+  }
+  body, .site-wrapper {
+    overflow-x: hidden;
+  }
+}
